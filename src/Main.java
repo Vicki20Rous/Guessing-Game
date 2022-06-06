@@ -17,16 +17,15 @@ public class Main {
 
 
 //        int input = in.nextInt();
-
+        int tryAttempt = 0;
         while (true) {
             System.out.println("Welcome to Number Guess!!! \n" +"Well, I am thinking of a number between 1 and 20.");
             System.out.println( "Take a guess..");
             int guess = in.nextInt();
-
-            int tryAttempt = 0;
+            tryAttempt++;
 
             if (number == guess) {
-                System.out.println("Good job!!! You guessed my number in guesses!!");
+                System.out.println("Good job!!! You guessed my number in " + tryAttempt + " guesses!!");
                 break;
             } else if (number < guess) {
                 System.out.println("Your guess is too high.");
