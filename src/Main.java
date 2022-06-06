@@ -5,28 +5,32 @@ public class Main {
 
     public static void main(String[] args) {
 	// write your code here
-        String username = "";
-        System.out.println( "Welcome to Number Guess!!! \n" + "I am thinking of a number between 1 and 20.");
 
-        Scanner input = new Scanner(System.in);
-        input.nextInt();
+
         Random rand = new Random();
-        int number = rand.nextInt(20);
-        int tryAttempt = 6;
-        int guess;
+        Scanner in = new Scanner(System.in);
 
-        for(guess = 0; guess < tryAttempt; guess++) {
-            System.out.println("Take a guess..");
-            guess = input.nextInt();
+        int number = rand.nextInt(20) + 1;
+        System.out.println("Random Number is " + number);
 
-            if(number > guess && guess != tryAttempt - 1) {
-                System.out.println("Your guess ia too high.");
+        System.out.println("Welcome to Number Guess!!! \n" + "I am thinking of a number between 1 and 20.\n" + "Take a guess..");
+        int guess = in.nextInt();
+
+        int tryAttempt = 0;
+
+            if(number == guess) {
+                System.out.println("Good job!!! You guessed my number in guesses!!");
             }
-            else if (number < guess && guess != tryAttempt - 1) {
-                System.out.println("Your guess is too low");
+
+            else if(number > guess) {
+                System.out.println("Your guess is too high.");
+
             }
-            else
-        }
+            else if (number < guess){
+                System.out.println("Your guess is too low.");
+            }
+
+
 
     }
 }
