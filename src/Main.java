@@ -4,39 +4,46 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+        // write your code here
 
-        String username = "";
-        Random rand = new Random();
         Scanner in = new Scanner(System.in);
-        int number = rand.nextInt(20) + 1;
-        int tryAttempt = 0;
-        String playAgain = "";
 
+        //input username
 
-        System.out.println("Welcome to Number Guess!!! \n" + " Hello!! What is your name " + username);
-        System.out.println("Well, I am thinking of a number between 1 and 20.");
-//        String input = Integer.toString(Integer.parseInt(username));
+        System.out.println("Welcome to Number Guess!!! \n" + " Hello!! What is your name?");
+        String username = in.nextLine();
+        System.out.println("Well " + username + ", " + "I am thinking of a number between 1 and 20.");
 
+        String playAgain;
+//        String playAgain = "";
+        do {
 
+            Random rand = new Random();
+            int number = rand.nextInt(20) + 1;
+            int tryAttempt = 0;
 
-//        int input = in.nextInt();
-        while (true) {
-            System.out.println( "Take a guess..");
-            int guess = in.nextInt();
-            tryAttempt++;
+            while (true) {
+                System.out.println("Take a guess..");
+                int guess = in.nextInt();
+                tryAttempt++;
 
-            if (number == guess) {
-                System.out.println("Good job!!! You guessed my number in " + tryAttempt + " guesses!!" + "\nWould you like to play again? (yes or no)" + playAgain);
-                break;
-            } else if (number < guess) {
-                System.out.println("Your guess is too high.");
+                if (number == guess) {
+                    System.out.println("Good job!!! You guessed my number in " + tryAttempt + " guesses!!");
+                    break;
+                } else if (number < guess) {
+                    System.out.println("Your guess is too high.");
 
-            } else if (number > guess) {
-                System.out.println("Your guess is too low.");
-            }
+                } else if (number > guess) {
+                    System.out.println("Your guess is too low.");
 
+                }
 
-        }
+            } ///end of while loop
+
+            System.out.println("Would you like to play again (y or n)?");
+            playAgain = in.next();
+
+        } while (playAgain.equalsIgnoreCase("y"));
     }
+
 }
